@@ -1,1 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<changelogs>
 
+    <changelog>
+        <element>pkg_devartconsent</element>
+        <type>package</type>
+        <version>1.0.1</version>
+
+        <fix>
+            <item>Fixed dynamic embed observer delay for directly inserted script and iframe nodes by inspecting them synchronously instead of waiting for the debounced subtree scan</item>
+            <item>Fixed dashboard package version loading by replacing suppressed simplexml_load_file usage with PackageVersionHelper</item>
+            <item>Fixed consent registry availability probe to avoid COUNT(*) on every write path</item>
+        </fix>
+
+        <change>
+            <item>Dynamic observer now uses immediate inspection for direct SCRIPT and IFRAME nodes and keeps the 150 ms debounced scan only for container subtrees</item>
+            <item>Server-side HTML blocking now skips template and SVG segments through HtmlBlockingGuard before regex transforms</item>
+            <item>Removed alpha-era Google service *_mode parameter reads from GoogleServicesHelper</item>
+            <item>Frontend consent engine bumped to 2.0.1</item>
+            <item>Added CSP nonce runtime verification checklist in qa/csp-verification.md</item>
+            <item>Added consent observer scheduling regression tests for Node test runner</item>
+        </change>
+
+        <note>
+            <item>Recommended stable release for production Joomla 6 sites</item>
+            <item>Install or update using the full pkg_devartconsent package only</item>
+            <item>Safe update from 1.0.0, 1.0.0-rc.1 and 1.0.0-beta.* packages</item>
+            <item>Dynamic embed blocking remains best-effort; use window.DevArtConsent.whenGranted() for custom widgets</item>
+            <item>CDN or reverse-proxy cache purge remains manual after policy version increases</item>
+            <item>Validated on Joomla 6 with cache-first frontend behaviour and demo3 production-like QA</item>
+        </note>
+    </changelog>
+
+    <changelog>
+        <element>pkg_devartconsent</element>
+        <type>package</type>
+        <version>1.0.0</version>
+
+        <addition>
+            <item>Added full Joomla 6 native DevArt Consent package with component and system plugin architecture</item>
+            <item>Added cache-first consent banner with accept, reject, custom preferences and revoke</item>
+            <item>Added server-side blocking for Google services, marketing pixels, external embeds and custom rules</item>
+            <item>Added scoped throttled MutationObserver for dynamically inserted script and iframe nodes</item>
+            <item>Added Google Consent Mode v2 integration with early default denied state</item>
+            <item>Added optional consent registry with CSV export and com_ajax recording endpoint</item>
+            <item>Added built-in English and Greek frontend messages</item>
+            <item>Added DevArt appearance themes, radius presets and floating privacy button icons</item>
+            <item>Added administrator dashboard status panel with blocking-layer summary</item>
+            <item>Added per-service Google blocking for Analytics, GTM, Ads, AdSense and Ad Manager</item>
+            <item>Added marketing pixel blocking for Meta, TikTok and LinkedIn</item>
+            <item>Added independently configurable external embed providers including YouTube, Vimeo, Google Maps and social widgets</item>
+            <item>Added custom blocking rules with up to 30 administrator-defined patterns</item>
+            <item>Added CSP nonce support for inline bootstrap scripts and appearance CSS through CspNonceHelper</item>
+            <item>Added automatic Joomla page cache clear when policy version increases through SiteCacheHelper</item>
+            <item>Added public frontend API window.DevArtConsent with isGranted, whenGranted and capabilities flags</item>
+            <item>Added runtime verification corpus, automated helper tests and production QA checklists</item>
+            <item>Added GitHub-based Joomla update server support</item>
+        </addition>
+
+        <change>
+            <item>Consent architecture designed specifically for Joomla 6, PHP 8.3+ and full-page cache compatibility</item>
+            <item>Frontend renders the same HTML for all visitors; consent is applied client-side without Vary Cookie</item>
+            <item>Blocked third-party markup is restored in the browser only after the relevant category is granted</item>
+            <item>Blocking pipeline uses cheap pre-checks, per-layer skip logic and per-request runtime config cache</item>
+            <item>Privacy and cookie policy URLs accept only http(s) or site-relative paths with subdirectory-safe resolution</item>
+            <item>Non-HTML, JSON, XML and feed responses are excluded from banner injection through RenderedBodyGuard</item>
+            <item>Live third-party scripts are tracked with an in-memory WeakMap instead of data attributes on activated tags</item>
+        </change>
+
+        <security>
+            <item>Added PolicyUrlHelper sanitization rejecting javascript, data and parent-directory traversal in policy URLs</item>
+            <item>Added RenderedBodyGuard to prevent consent rewrites on non-HTML API and feed responses</item>
+            <item>Added CSRF protection for administrator settings and consent registry actions</item>
+            <item>Added ACL enforcement for administrator component access</item>
+            <item>Added malformed and expired consent cookie invalidation on the client</item>
+            <item>Added controller to service to storage flow for consent registry without exposing filesystem paths</item>
+        </security>
+
+        <note>
+            <item>Initial public DevArt Consent stable release for Joomla 6</item>
+            <item>Requires Joomla 6.0+ and PHP 8.3+</item>
+            <item>Install using the full pkg_devartconsent package, not the component ZIP alone</item>
+            <item>Dynamic embed blocking cannot guarantee zero network activity before observer callback for src-based nodes</item>
+            <item>Purge CDN or reverse-proxy cache manually after policy version changes</item>
+            <item>Always test on a staging environment before production deployment</item>
+        </note>
+    </changelog>
+
+</changelogs>
