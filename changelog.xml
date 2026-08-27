@@ -4,6 +4,47 @@
     <changelog>
         <element>pkg_devartconsent</element>
         <type>package</type>
+        <version>1.1.0</version>
+
+        <addition>
+            <item>Added administrator dashboard hubs for Tools, Consents and Settings with distinct coloured icons and matching buttons</item>
+            <item>Added a non-hub Options button under the hubs that opens Joomla component Options</item>
+            <item>Added dedicated media/css/admin.css loaded with registerAndUseStyle</item>
+            <item>Added administrator, installer and frontend banner translations for fr-FR, de-DE, es-ES, it-IT, pt-BR, cs-CZ, nl-NL, pl-PL, ru-RU, uk-UA, ja-JP, tr-TR and zh-CN</item>
+            <item>Added Argos-first / Google-fallback i18n tooling with placeholder validation</item>
+        </addition>
+
+        <fix>
+            <item>Fixed activated embed wrappers retaining a grey background and border after consent is granted</item>
+            <item>Fixed activated embeds stretching to full width and collapsing height after transparent-wrapper styling</item>
+            <item>Fixed duplicate dashboard banner caused by template header plus system plugin submenu header injection</item>
+            <item>Fixed dashboard hubs not loading admin CSS so coloured circular icons and matching buttons were missing</item>
+            <item>Fixed package validation so historical changelog entries are allowed when the current package version is present</item>
+        </fix>
+
+        <change>
+            <item>Embed placeholder styling now applies only while consent is missing; activated iframes keep original width and height with max-width:100% and reserved min-height</item>
+            <item>Dashboard now follows the DevArt hub layout with banner, intro, hubs, Options and status info cards</item>
+            <item>Expanded built-in frontend message packs so Joomla selects banner text by active site language without manual overrides</item>
+        </change>
+
+        <security>
+            <item>Hardened the public consent registry AJAX endpoint with an FPC-safe registry token, same-site Origin/Referer checks, and Cache-Control no-store responses</item>
+            <item>Switched consent registry visitor hashing to hash_hmac with the Joomla secret as the HMAC key</item>
+        </security>
+
+        <note>
+            <item>Safe update from 1.0.1 and earlier 1.0.x packages</item>
+            <item>Machine-generated locales are open to native-speaker review</item>
+            <item>Session form tokens are intentionally not used for the public registry endpoint so Full Page Cache remains unchanged</item>
+            <item>Install or update using the full pkg_devartconsent package only</item>
+            <item>Requires Joomla 6.0+ and PHP 8.3.0+</item>
+        </note>
+    </changelog>
+
+    <changelog>
+        <element>pkg_devartconsent</element>
+        <type>package</type>
         <version>1.0.1</version>
 
         <fix>
