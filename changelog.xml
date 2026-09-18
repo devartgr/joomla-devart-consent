@@ -4,6 +4,28 @@
     <changelog>
         <element>pkg_devartconsent</element>
         <type>package</type>
+        <version>1.1.2</version>
+
+        <fix>
+            <item>Fixed multilingual policy URL saves so Greek and other non-default languages persist reliably after Apply/Save</item>
+            <item>Fixed Policies language selector resetting after save by restoring the last edited language from user state</item>
+            <item>Fixed flaky English policy URL display after save by storing the language map as a single JSON string instead of nested Registry objects</item>
+        </fix>
+
+        <change>
+            <item>Settings → Policies now uses one Privacy/Cookies editor pair with a hidden JSON language map synchronized by JavaScript before save</item>
+        </change>
+
+        <note>
+            <item>Safe update from 1.1.1</item>
+            <item>Existing privacy_url, cookies_url and policy_urls values are preserved</item>
+            <item>Install or update using the full pkg_devartconsent package only</item>
+        </note>
+    </changelog>
+
+    <changelog>
+        <element>pkg_devartconsent</element>
+        <type>package</type>
         <version>1.1.1</version>
 
         <addition>

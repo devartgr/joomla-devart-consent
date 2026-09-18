@@ -4,7 +4,7 @@ Professional GDPR consent management package for Joomla 6, designed for municipa
 
 ![Joomla](https://img.shields.io/badge/Joomla-6.x-blue)
 ![PHP](https://img.shields.io/badge/PHP-8.3%2B-green)
-![Release](https://img.shields.io/badge/Version-1.1.1-orange)
+![Release](https://img.shields.io/badge/Version-1.1.2-orange)
 ![License](https://img.shields.io/badge/License-GPLv3-red)
 
 ---
@@ -31,9 +31,20 @@ The package includes a component and a system plugin.
 
 ---
 
+## Version 1.1.2
+
+DevArt Consent 1.1.2 is the recommended stable release for Joomla 6 production sites.
+
+### Version 1.1.2 Highlights
+
+- Reliable multilingual policy URL saves (single JSON language map + one Privacy/Cookies editor)
+- Policies language selector restored after Apply/Save
+- Fixes for Greek (and other non-default languages) not persisting, and flaky English display after save
+- Safe update from 1.1.1; existing URL values are preserved
+
 ## Version 1.1.1
 
-DevArt Consent 1.1.1 is the recommended stable release for Joomla 6 production sites.
+DevArt Consent 1.1.1 added per-language privacy and cookie policy URLs for multilingual sites.
 
 ### Version 1.1.1 Highlights
 
@@ -317,7 +328,7 @@ Optional:
 
 1. Download the latest package:
 
-   `pkg_devartconsent_v1.1.1.zip`
+   `pkg_devartconsent_v1.1.2.zip`
 
 2. Open the Joomla administrator.
 
@@ -359,7 +370,7 @@ Before updating a production website:
 - Purge CDN or reverse-proxy cache after policy version changes
 - Complete `qa/csp-verification.md` if CSP nonces are enabled
 
-Version 1.1.1 is a safe update from `1.1.0` and earlier `1.0.x` packages.
+Version 1.1.2 is a safe update from `1.1.1` and `1.1.0` and earlier `1.0.x` packages.
 
 ---
 
@@ -367,7 +378,7 @@ Version 1.1.1 is a safe update from `1.1.0` and earlier `1.0.x` packages.
 
 Latest release:
 
-`pkg_devartconsent_v1.1.1.zip`
+`pkg_devartconsent_v1.1.2.zip`
 
 GitHub releases:
 
@@ -375,7 +386,7 @@ https://github.com/devartgr/joomla-devart-consent/releases
 
 Direct download:
 
-https://github.com/devartgr/joomla-devart-consent/releases/download/v1.1.1/pkg_devartconsent_v1.1.1.zip
+https://github.com/devartgr/joomla-devart-consent/releases/download/v1.1.2/pkg_devartconsent_v1.1.2.zip
 
 SHA-256:
 
