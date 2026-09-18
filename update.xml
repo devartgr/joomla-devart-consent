@@ -6,12 +6,12 @@
         <element>pkg_devartconsent</element>
         <type>package</type>
         <client>site</client>
-        <version>1.1.0</version>
+        <version>1.1.1</version>
         <infourl title="DevArt Consent">https://github.com/devartgr/joomla-devart-consent</infourl>
         <downloads>
-            <downloadurl type="full" format="zip">https://github.com/devartgr/joomla-devart-consent/releases/download/v1.1.0/pkg_devartconsent_v1.1.0.zip</downloadurl>
+            <downloadurl type="full" format="zip">https://github.com/devartgr/joomla-devart-consent/releases/download/v1.1.1/pkg_devartconsent_v1.1.1.zip</downloadurl>
         </downloads>
-        <sha256>6aec7294d097c5f22aed91150eba7938f59c372679d2a5a0969afbd3d623e7fc</sha256>
+        <sha256>04501080c39b40449fc6a6553342520afdbab1660f853cd8c0907f154b2eb638</sha256>
         <tags>
             <tag>stable</tag>
         </tags>

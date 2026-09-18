@@ -4,6 +4,32 @@
     <changelog>
         <element>pkg_devartconsent</element>
         <type>package</type>
+        <version>1.1.1</version>
+
+        <addition>
+            <item>Added per-language privacy and cookie policy URLs in Settings → Policies, with a Forms-style language selector (flags + site content languages)</item>
+        </addition>
+
+        <fix>
+            <item>Fixed policy language labels so el-GR is shown as Ελληνικά instead of a mistranslated English title from content-language metadata</item>
+            <item>Fixed per-language policy URLs not reloading for non-default languages after save when nested params were Registry/stdClass objects</item>
+            <item>Fixed Privacy policy URL not persisting for non-default languages by using dedicated nested field keys and safer form language keys</item>
+        </fix>
+
+        <change>
+            <item>Banner policy links now resolve from the active site language, with fallback to the previous single privacy/cookie URL fields</item>
+        </change>
+
+        <note>
+            <item>Safe update from 1.1.0</item>
+            <item>Existing privacy_url and cookies_url values are preserved and seeded into the site default language</item>
+            <item>Install or update using the full pkg_devartconsent package only</item>
+        </note>
+    </changelog>
+
+    <changelog>
+        <element>pkg_devartconsent</element>
+        <type>package</type>
         <version>1.1.0</version>
 
         <addition>
