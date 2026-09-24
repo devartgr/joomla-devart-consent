@@ -4,7 +4,7 @@ Professional GDPR consent management package for Joomla 6, designed for municipa
 
 ![Joomla](https://img.shields.io/badge/Joomla-6.x-blue)
 ![PHP](https://img.shields.io/badge/PHP-8.3%2B-green)
-![Release](https://img.shields.io/badge/Version-1.1.3-orange)
+![Release](https://img.shields.io/badge/Version-1.1.4-orange)
 ![License](https://img.shields.io/badge/License-GPLv3-red)
 
 ---
@@ -31,9 +31,18 @@ The package includes a component and a system plugin.
 
 ---
 
+## Version 1.1.4
+
+DevArt Consent 1.1.4 is the recommended stable release for Joomla 6 production sites.
+
+### Version 1.1.4 Highlights
+
+- Joomla 7 readiness: removed deprecated JPATH_COMPONENT_ADMINISTRATOR (forms path + admin footers)
+- Safe update from 1.1.3
+
 ## Version 1.1.3
 
-DevArt Consent 1.1.3 is the recommended stable release for Joomla 6 production sites.
+DevArt Consent 1.1.3 fixed Settings cache reload and earlier Joomla 7 API readiness.
 
 ### Version 1.1.3 Highlights
 
@@ -338,7 +347,7 @@ Optional:
 
 1. Download the latest package:
 
-   `pkg_devartconsent_v1.1.3.zip`
+   `pkg_devartconsent_v1.1.4.zip`
 
 2. Open the Joomla administrator.
 
@@ -380,7 +389,7 @@ Before updating a production website:
 - Purge CDN or reverse-proxy cache after policy version changes
 - Complete `qa/csp-verification.md` if CSP nonces are enabled
 
-Version 1.1.3 is a safe update from `1.1.2`, `1.1.1` and `1.1.0` and earlier `1.0.x` packages.
+Version 1.1.4 is a safe update from `1.1.3`, `1.1.2`, `1.1.1` and `1.1.0` and earlier `1.0.x` packages.
 
 ---
 
@@ -388,7 +397,7 @@ Version 1.1.3 is a safe update from `1.1.2`, `1.1.1` and `1.1.0` and earlier `1.
 
 Latest release:
 
-`pkg_devartconsent_v1.1.3.zip`
+`pkg_devartconsent_v1.1.4.zip`
 
 GitHub releases:
 
@@ -396,7 +405,7 @@ https://github.com/devartgr/joomla-devart-consent/releases
 
 Direct download:
 
-https://github.com/devartgr/joomla-devart-consent/releases/download/v1.1.3/pkg_devartconsent_v1.1.3.zip
+https://github.com/devartgr/joomla-devart-consent/releases/download/v1.1.4/pkg_devartconsent_v1.1.4.zip
 
 SHA-256:
 
