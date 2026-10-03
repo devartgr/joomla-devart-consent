@@ -4,6 +4,77 @@
     <changelog>
         <element>pkg_devartconsent</element>
         <type>package</type>
+        <version>1.1.5</version>
+
+        <fix>
+            <item>Script blocking now applies only to executable script types so application/ld+json, importmap, and similar non-executable scripts are left unchanged</item>
+            <item>PCRE rewrite failures are logged once per request and fail open with the original HTML instead of silently continuing without visibility</item>
+            <item>Frontend dynamic observer debounce now accumulates MutationObserver batches in a Set so rapid inserts are not dropped</item>
+            <item>Embed placeholders are built with textContent to avoid injecting raw message HTML</item>
+            <item>reject_all is no longer recorded as accepted when no optional categories are enabled</item>
+            <item>Activated external scripts preserve original sync order by setting async=false when needed</item>
+            <item>Package postflight enables the system plugin on install/discover_install only and no longer re-enables it on update</item>
+            <item>Settings save clears Joomla page HTML cache groups when HTML-affecting fields change, not only when consent_version increases</item>
+        </fix>
+
+        <addition>
+            <item>Registry Options for visitor IP source (REMOTE_ADDR or Cloudflare CF-Connecting-IP), retention days, and configurable global insert rate cap</item>
+            <item>Task plugin plg_task_devartconsentcleanup for scheduled registry retention cleanup, with a daily Scheduler task auto-created on install/update</item>
+            <item>providers.json catalogue for external embed providers</item>
+            <item>HtmlBlocker and BannerRenderer helpers extracted from the system plugin</item>
+        </addition>
+
+        <security>
+            <item>Missing component helpers no longer fatal the site; the system plugin returns early when the component is unavailable</item>
+            <item>Registry visitor hashing never uses raw X-Forwarded-For; Cloudflare IP source accepts only a validated CF-Connecting-IP value</item>
+            <item>Registry Options warn that Cloudflare IP mode requires an origin that accepts traffic only from Cloudflare</item>
+        </security>
+
+        <change>
+            <item>Bootstrap inline script and consent assets enqueue set data-cfasync=false for Cloudflare Rocket Loader compatibility</item>
+            <item>Frontend assets load via WebAssetManager with version=auto and minified consent.min.js / consent.min.css</item>
+            <item>Dynamic MutationObserver disconnects when all enabled optional categories are granted</item>
+            <item>Settings save moved to SettingsModel with a thin FormController</item>
+            <item>Dashboard registry total uses a short-lived cache invalidated on write/purge</item>
+            <item>Registry AJAX token rotates daily with a 14-day acceptance window for full-page cache compatibility</item>
+            <item>Same-site registry checks compare Origin/Referer host only</item>
+            <item>Registry hot path drops pre-insert revisionExists and availability probes; duplicates rely on UNIQUE key 1062</item>
+            <item>Global insert rate cap added alongside the per-visitor limit</item>
+            <item>Registry record validates payload before rate-limit COUNTs and uses one combined visitor+global COUNT query</item>
+            <item>Registry retention purge deletes in LIMIT 5000 batches with a per-run cap</item>
+            <item>Added scripts/run-registry-tests.php for token, same-site host, IP source, and record/purge ordering checks</item>
+            <item>Replaced deprecated setQuery offset/limit with query setLimit for registry list and CSV export</item>
+            <item>Registry CSV export streams in batches and marks truncation at 10000 rows</item>
+            <item>Settings save shows a CDN purge notice for HTML-affecting changes, including cookie_days</item>
+            <item>Registry dashboard total cache removes one key instead of cleaning the whole group on every insert</item>
+            <item>Global registry insert cap is configurable in Options</item>
+            <item>Cookie expiry on an open tab deactivates scripts and embeds via applyState(null)</item>
+            <item>Google blocking pre-check no longer matches Consent Mode bootstrap via weak dataLayer/gtag needles</item>
+            <item>HtmlBlockingGuard logs PCRE mask failures and uses a safer skip placeholder</item>
+            <item>Frontend dynamic provider matching uses providerCatalogue from providers.json as a single source of truth</item>
+            <item>HTML blocking split into HtmlBlockingSupport, GoogleContentBlocker, and MarketingContentBlocker</item>
+            <item>Dashboard shows UTC-day rate-limited registry reject count when non-zero</item>
+            <item>Frontend engine version 2.0.2</item>
+            <item>External embed blocking extracted to ExternalContentBlocker</item>
+            <item>Administrator branding CSS/header injection moved to AdministratorBrandingHelper</item>
+            <item>Single EngineVersion helper feeds plugin config, dashboard, and consent.js</item>
+            <item>Real consent.js VM tests cover accept/reject/custom/revoke, policy mismatch, engineVersion, and expired cookies</item>
+            <item>Frontend body processing uses a request-local flag instead of scanning HTML for id=&quot;devart-consent&quot;</item>
+            <item>Consent registry list/export ORDER BY adds a.id as a stable tie-break for OFFSET batch CSV export</item>
+            <item>Removed unused deprecated ConsentsModel::getExportItems()</item>
+            <item>validate.php fails if consent.js engineVersion fallback drifts from EngineVersion::VALUE</item>
+        </change>
+
+        <note>
+            <item>Safe update from 1.1.4</item>
+            <item>Install or update using the full pkg_devartconsent package only</item>
+            <item>A daily Scheduler task for registry retention is created automatically on install/update when missing</item>
+        </note>
+    </changelog>
+
+    <changelog>
+        <element>pkg_devartconsent</element>
+        <type>package</type>
         <version>1.1.4</version>
 
         <fix>

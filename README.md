@@ -4,7 +4,7 @@ Professional GDPR consent management package for Joomla 6, designed for municipa
 
 ![Joomla](https://img.shields.io/badge/Joomla-6.x-blue)
 ![PHP](https://img.shields.io/badge/PHP-8.3%2B-green)
-![Release](https://img.shields.io/badge/Version-1.1.4-orange)
+![Release](https://img.shields.io/badge/Version-1.1.5-orange)
 ![License](https://img.shields.io/badge/License-GPLv3-red)
 
 ---
@@ -25,15 +25,27 @@ DevArt Consent supports:
 - Built-in frontend messages for 15 languages (en-GB, el-GR, and 13 additional locales)
 - DevArt appearance themes
 - Administrator dashboard hubs for Tools, Consents and Settings
-- Automatic Joomla cache clear on policy version bump
+- Automatic Joomla cache clear and CDN purge notice for HTML-affecting settings changes
 
-The package includes a component and a system plugin.
+The package includes a component, a system plugin, and an optional registry cleanup task plugin.
 
 ---
 
+## Version 1.1.5
+
+DevArt Consent 1.1.5 is the recommended stable release for Joomla 6 production sites.
+
+### Version 1.1.5 Highlights
+
+- Hardened HTML blocking and frontend runtime (executable-script gate, PCRE fail-open logging, observer batch Set, cookie expiry deactivates scripts/embeds)
+- Optional consent registry: retention task plugin, rate limits, safer IP handling, streaming CSV export with stable ordering
+- Cloudflare/cache: `data-cfasync="false"`, WebAsset `version=auto`, CDN purge notice for HTML-affecting settings
+- Maintainability: layered HtmlBlocker, `providers.json` catalogue, single `EngineVersion`, real `consent.js` VM tests
+- Safe update from 1.1.4
+
 ## Version 1.1.4
 
-DevArt Consent 1.1.4 is the recommended stable release for Joomla 6 production sites.
+DevArt Consent 1.1.4 completed Joomla 7 path-constant readiness.
 
 ### Version 1.1.4 Highlights
 
@@ -94,6 +106,7 @@ The installable package includes:
 
 - `com_devartconsent` — Administrator component (dashboard, settings, tools, consents)
 - `plg_system_devartconsent` — System plugin for banner injection, blocking pipeline, and frontend runtime
+- `plg_task_devartconsentcleanup` — Scheduled task plugin for optional registry retention cleanup
 
 Always install or update using the full `pkg_devartconsent` package.
 
@@ -347,7 +360,7 @@ Optional:
 
 1. Download the latest package:
 
-   `pkg_devartconsent_v1.1.4.zip`
+   `pkg_devartconsent_v1.1.5.zip`
 
 2. Open the Joomla administrator.
 
@@ -389,7 +402,7 @@ Before updating a production website:
 - Purge CDN or reverse-proxy cache after policy version changes
 - Complete `qa/csp-verification.md` if CSP nonces are enabled
 
-Version 1.1.4 is a safe update from `1.1.3`, `1.1.2`, `1.1.1` and `1.1.0` and earlier `1.0.x` packages.
+Version 1.1.5 is a safe update from `1.1.4`, `1.1.3`, `1.1.2`, `1.1.1` and `1.1.0` and earlier `1.0.x` packages.
 
 ---
 
@@ -397,7 +410,7 @@ Version 1.1.4 is a safe update from `1.1.3`, `1.1.2`, `1.1.1` and `1.1.0` and ea
 
 Latest release:
 
-`pkg_devartconsent_v1.1.4.zip`
+`pkg_devartconsent_v1.1.5.zip`
 
 GitHub releases:
 
@@ -405,11 +418,11 @@ https://github.com/devartgr/joomla-devart-consent/releases
 
 Direct download:
 
-https://github.com/devartgr/joomla-devart-consent/releases/download/v1.1.4/pkg_devartconsent_v1.1.4.zip
+https://github.com/devartgr/joomla-devart-consent/releases/download/v1.1.5/pkg_devartconsent_v1.1.5.zip
 
 SHA-256:
 
-`04501080c39b40449fc6a6553342520afdbab1660f853cd8c0907f154b2eb638`
+`2f052bc567d0949c1a30901eaf0b125b877f8ab2a43c2037548fa303f27e22ce`
 
 ---
 
