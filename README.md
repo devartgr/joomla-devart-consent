@@ -4,7 +4,7 @@ Professional GDPR consent management package for Joomla 6, designed for municipa
 
 ![Joomla](https://img.shields.io/badge/Joomla-6.x-blue)
 ![PHP](https://img.shields.io/badge/PHP-8.3%2B-green)
-![Release](https://img.shields.io/badge/Version-1.1.5-orange)
+![Release](https://img.shields.io/badge/Version-1.1.6-orange)
 ![License](https://img.shields.io/badge/License-GPLv3-red)
 
 ---
@@ -31,9 +31,22 @@ The package includes a component, a system plugin, and an optional registry clea
 
 ---
 
+## Version 1.1.6
+
+DevArt Consent 1.1.6 is the recommended stable release for Joomla 6 production sites.
+
+### Version 1.1.6 Highlights
+
+- Safer registry and settings path: last-`</body>` banner inject, sendBeacon→fetch fallback, 4 KB JSON cap, settings clamps, purge time budget, early AJAX session close
+- Cloudflare readiness: dashboard CF IP misconfiguration warning, root-relative registry endpoint, operator guide (`docs/cloudflare.md`) for Edge TTL ≤14 days and `com_ajax` bypass
+- Accessibility: `aria-modal` matches banner position; Tab focus trap when `position=modal`
+- Hygiene: corrected PCRE log labels, shared plugin logger, remaining `strict_types`, minified-asset freshness in validate, observer throttle
+- Administrator translations refreshed for machine locales (registry/Cloudflare strings)
+- Safe update from 1.1.5
+
 ## Version 1.1.5
 
-DevArt Consent 1.1.5 is the recommended stable release for Joomla 6 production sites.
+DevArt Consent 1.1.5 hardened HTML blocking, registry Options, and cache-friendly assets.
 
 ### Version 1.1.5 Highlights
 
@@ -360,7 +373,7 @@ Optional:
 
 1. Download the latest package:
 
-   `pkg_devartconsent_v1.1.5.zip`
+   `pkg_devartconsent_v1.1.6.zip`
 
 2. Open the Joomla administrator.
 
@@ -402,7 +415,7 @@ Before updating a production website:
 - Purge CDN or reverse-proxy cache after policy version changes
 - Complete `qa/csp-verification.md` if CSP nonces are enabled
 
-Version 1.1.5 is a safe update from `1.1.4`, `1.1.3`, `1.1.2`, `1.1.1` and `1.1.0` and earlier `1.0.x` packages.
+Version 1.1.6 is a safe update from `1.1.5`, `1.1.4`, `1.1.3`, `1.1.2`, `1.1.1` and `1.1.0` and earlier `1.0.x` packages.
 
 ---
 
@@ -410,7 +423,7 @@ Version 1.1.5 is a safe update from `1.1.4`, `1.1.3`, `1.1.2`, `1.1.1` and `1.1.
 
 Latest release:
 
-`pkg_devartconsent_v1.1.5.zip`
+`pkg_devartconsent_v1.1.6.zip`
 
 GitHub releases:
 
@@ -418,11 +431,11 @@ https://github.com/devartgr/joomla-devart-consent/releases
 
 Direct download:
 
-https://github.com/devartgr/joomla-devart-consent/releases/download/v1.1.5/pkg_devartconsent_v1.1.5.zip
+https://github.com/devartgr/joomla-devart-consent/releases/download/v1.1.6/pkg_devartconsent_v1.1.6.zip
 
 SHA-256:
 
-`2f052bc567d0949c1a30901eaf0b125b877f8ab2a43c2037548fa303f27e22ce`
+`26333216b569203f0452628cfc6db7d1cd3e89e88ec635a83f05487a29644ca7`
 
 ---
 

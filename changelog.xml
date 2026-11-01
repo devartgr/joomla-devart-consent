@@ -4,6 +4,44 @@
     <changelog>
         <element>pkg_devartconsent</element>
         <type>package</type>
+        <version>1.1.6</version>
+
+        <fix>
+            <item>Banner markup is injected before the last body close tag only so literal body close text in page content is not rewritten</item>
+            <item>Registry sendBeacon failures fall back to fetch so consent recording is not silently skipped when the beacon queue rejects the payload</item>
+            <item>HTML blocker PCRE log context labels match the Google, Marketing, and custom layers under rewrite</item>
+            <item>Banner dialog uses aria-modal=false for bottom/top and aria-modal=true with a Tab focus trap when position is modal</item>
+        </fix>
+
+        <change>
+            <item>Registry AJAX JSON body reads are capped at 4 KB before decode while the FormData path stays unchanged</item>
+            <item>Settings save clamps cookie_days to 1-3650, requires consent_version at least 1, and whitelists banner position to bottom/top/modal</item>
+            <item>Registry retention purge uses an approximately 20 second time budget with a hard batch ceiling</item>
+            <item>Registry AJAX releases the Joomla session lock early because that path does not write session data</item>
+            <item>HtmlBlockingGuard PCRE warnings use the shared plg_system_devartconsent logger category</item>
+            <item>Consents admin task-reset script moves to WebAsset addInlineScript</item>
+            <item>Remaining core PHP entry points declare strict_types=1</item>
+            <item>Registry endpoint is root-relative so multi-host and proxy setups post to the origin that served the page</item>
+            <item>Dynamic embed container scan uses a 150 ms throttle without timer reset so continuous DOM mutations cannot starve deferred inspection</item>
+        </change>
+
+        <addition>
+            <item>Dashboard warning when consent registry uses REMOTE_ADDR while the admin request shows a different validated Cloudflare CF-Connecting-IP</item>
+            <item>Operator guide docs/cloudflare.md for Rocket Loader, Cloudflare IP mode, and full-page cache</item>
+            <item>validate.php freshness check fails when consent.min.js or consent.min.css is older than its source</item>
+            <item>Machine-locale administrator translations refreshed for registry Cloudflare warning and related Options strings</item>
+            <item>Cloudflare operator guide documents Edge TTL versus the 14-day registry token window and com_ajax bypass guidance</item>
+        </addition>
+
+        <note>
+            <item>Safe update from 1.1.5</item>
+            <item>Install or update using the full pkg_devartconsent package only</item>
+        </note>
+    </changelog>
+
+    <changelog>
+        <element>pkg_devartconsent</element>
+        <type>package</type>
         <version>1.1.5</version>
 
         <fix>
