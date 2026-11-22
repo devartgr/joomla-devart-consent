@@ -4,6 +4,21 @@
     <changelog>
         <element>pkg_devartconsent</element>
         <type>package</type>
+        <version>1.1.7</version>
+
+        <fix>
+            <item>Russian ru-RU reject-all button label changed from Отвергнуть все to Отклонить все in the system plugin language and frontend messages pack</item>
+        </fix>
+
+        <note>
+            <item>Safe update from 1.1.6</item>
+            <item>Install or update using the full pkg_devartconsent package only</item>
+        </note>
+    </changelog>
+
+    <changelog>
+        <element>pkg_devartconsent</element>
+        <type>package</type>
         <version>1.1.6</version>
 
         <fix>
