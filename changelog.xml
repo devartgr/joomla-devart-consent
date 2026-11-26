@@ -4,6 +4,40 @@
     <changelog>
         <element>pkg_devartconsent</element>
         <type>package</type>
+        <version>1.1.8</version>
+
+        <addition>
+            <item>Settings Messages tab: permanent per-language frontend message overrides stored in component params</item>
+            <item>Message resolve order: Settings overrides, then frontend-messages.json, then plugin language strings</item>
+            <item>Collapsible Messages UI groups for banner, buttons, categories, placeholders and policy labels</item>
+        </addition>
+
+        <fix>
+            <item>Italian it-IT native-speaker review applied to plugin banner strings, component sys.ini, visible administrator strings, and the frontend messages pack</item>
+            <item>Empty COM_DEVARTCONSENT menu title and broken analytics label in it-IT corrected</item>
+            <item>it-IT marked curated and protected from generator overwrite</item>
+            <item>Developer API on() short event names now match emit(), so whenGranted() fires after a later accept</item>
+            <item>Server embed placeholders use the same resolved frontend messages as the banner</item>
+            <item>Consent CSV export uses explicit fputcsv escape for PHP 8.4+</item>
+            <item>Settings language lists for Messages and Policies use installed site language packs</item>
+        </fix>
+
+        <change>
+            <item>Admin language notes clarify installed site packs versus content languages</item>
+        </change>
+
+        <note>
+            <item>Safe update from 1.1.7</item>
+            <item>Install or update using the full pkg_devartconsent package only</item>
+            <item>Thanks to mauroplg for the Italian translation review (issue #2)</item>
+            <item>Empty message override fields keep the built-in frontend pack or plugin translation</item>
+            <item>Purge full-page cache and CDN after changing message overrides</item>
+        </note>
+    </changelog>
+
+    <changelog>
+        <element>pkg_devartconsent</element>
+        <type>package</type>
         <version>1.1.7</version>
 
         <fix>

@@ -4,7 +4,7 @@ Professional GDPR consent management package for Joomla 6, designed for municipa
 
 ![Joomla](https://img.shields.io/badge/Joomla-6.x-blue)
 ![PHP](https://img.shields.io/badge/PHP-8.3%2B-green)
-![Release](https://img.shields.io/badge/Version-1.1.7-orange)
+![Release](https://img.shields.io/badge/Version-1.1.8-orange)
 ![License](https://img.shields.io/badge/License-GPLv3-red)
 
 ---
@@ -23,6 +23,7 @@ DevArt Consent supports:
 - Google Consent Mode v2
 - Optional consent registry with CSV export
 - Built-in frontend messages for 15 languages (en-GB, el-GR, and 13 additional locales)
+- Optional Settings → Messages overrides per installed site language
 - DevArt appearance themes
 - Administrator dashboard hubs for Tools, Consents and Settings
 - Automatic Joomla cache clear and CDN purge notice for HTML-affecting settings changes
@@ -31,9 +32,22 @@ The package includes a component, a system plugin, and an optional registry clea
 
 ---
 
+## Version 1.1.8
+
+DevArt Consent 1.1.8 is the recommended stable release for Joomla 6 production sites.
+
+### Version 1.1.8 Highlights
+
+- Settings → Messages: permanent per-language frontend message overrides
+- Italian (`it-IT`) native-speaker review (issue #2) and curated/protected locale
+- Developer API: `whenGranted()` / `on('change')` fire correctly after a later accept
+- Server embed placeholders use the same resolved messages as the banner
+- CSV export PHP 8.4+ safe; Messages/Policies language lists use installed site packs
+- Safe update from 1.1.7
+
 ## Version 1.1.7
 
-DevArt Consent 1.1.7 is the recommended stable release for Joomla 6 production sites.
+DevArt Consent 1.1.7 improved the Russian reject-all wording.
 
 ### Version 1.1.7 Highlights
 
@@ -382,7 +396,7 @@ Optional:
 
 1. Download the latest package:
 
-   `pkg_devartconsent_v1.1.7.zip`
+   `pkg_devartconsent_v1.1.8.zip`
 
 2. Open the Joomla administrator.
 
@@ -424,7 +438,7 @@ Before updating a production website:
 - Purge CDN or reverse-proxy cache after policy version changes
 - Complete `qa/csp-verification.md` if CSP nonces are enabled
 
-Version 1.1.7 is a safe update from `1.1.6`, `1.1.5`, `1.1.4`, `1.1.3`, `1.1.2`, `1.1.1` and `1.1.0` and earlier `1.0.x` packages.
+Version 1.1.8 is a safe update from `1.1.7`, `1.1.6`, `1.1.5`, `1.1.4`, `1.1.3`, `1.1.2`, `1.1.1` and `1.1.0` and earlier `1.0.x` packages.
 
 ---
 
@@ -432,7 +446,7 @@ Version 1.1.7 is a safe update from `1.1.6`, `1.1.5`, `1.1.4`, `1.1.3`, `1.1.2`,
 
 Latest release:
 
-`pkg_devartconsent_v1.1.7.zip`
+`pkg_devartconsent_v1.1.8.zip`
 
 GitHub releases:
 
@@ -440,11 +454,11 @@ https://github.com/devartgr/joomla-devart-consent/releases
 
 Direct download:
 
-https://github.com/devartgr/joomla-devart-consent/releases/download/v1.1.7/pkg_devartconsent_v1.1.7.zip
+https://github.com/devartgr/joomla-devart-consent/releases/download/v1.1.8/pkg_devartconsent_v1.1.8.zip
 
 SHA-256:
 
-`3bc9b9301d6cb6b327fb87db18836824bd72e733e089ade8edf38d34a4261c22`
+`00269a1a12d4e7b51a1f668e2499ef3110d4ea33bd86316379c43fe1480b6b7d`
 
 ---
 
