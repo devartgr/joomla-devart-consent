@@ -1,7 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
 <changelogs>
 
-    <changelog>
+        <changelog>
+        <element>pkg_devartconsent</element>
+        <type>package</type>
+        <version>1.1.9</version>
+
+        <addition>
+            <item>Tools Blocker Self-check with built-in YouTube and gtag fixture scored against current Settings</item>
+            <item>Tools same-site URL analyze (SSRF-safe host from live_site or site root, port checks, no redirects, download size cap)</item>
+            <item>Soft registry_max_records option trimmed by the Scheduler cleanup task</item>
+            <item>Configurable registry_export_limit for CSV export</item>
+            <item>data-devart-type module preservation and browser restore</item>
+            <item>Dashboard and Settings warning when blocking is on but the category switch is off</item>
+            <item>data-label on external embed placeholders for stable revoke labels</item>
+        </addition>
+
+        <fix>
+            <item>Hardened client-side embed restore against untrusted markup (element and attribute allowlists; strips event handlers, srcdoc, and non-http(s) URLs)</item>
+            <item>Embed placeholders reject the always-granted necessary category</item>
+            <item>Fallback embed data-src requires a catalogue- or custom-rule-matched http(s) URL</item>
+            <item>Safer HTML transforms: exact attribute reading; quote-aware comment, svg and template masks</item>
+            <item>Iframe, image and blockquote passes no longer rewrite markup that appears only inside JavaScript strings, comments, style or textarea</item>
+            <item>Skipped svg and template segments unmasked before storage; self-closing exception applies to svg only</item>
+            <item>Lazy about:blank, data: and placeholder src store the rule-matched data-src URL</item>
+            <item>Detectors evaluate both src and data-src candidates for Google, marketing, custom and external rules</item>
+            <item>Lazy embed restore after consent with data-src promotion for iframes</item>
+            <item>Stricter category handling for restored embed markup</item>
+            <item>Session Allow content embeds deactivate when the consent cookie disappears</item>
+            <item>Allow content no longer opens preferences or pre-ticks category checkboxes</item>
+            <item>whenGranted fires again after silent cookie loss then re-accept</item>
+            <item>Reject and revoke without prior activation no longer remove a neighbouring foreign script by adjacency</item>
+            <item>Visibility cookie wipe emits revoke when consent was previously present</item>
+            <item>Single-pass token restore for large comment-heavy HTML</item>
+            <item>Mixed GA4 and Google Ads inline classification with Consent Mode aware semantics</item>
+            <item>Google and marketing prechecks cover inline signatures without matching bare Consent Mode bootstrap needles</item>
+            <item>Early cookie hint and CSS suppress embed blocked-message flash when external consent is already granted</item>
+        </fix>
+
+        <change>
+            <item>Registry soft-max trim runs in the Scheduler cleanup task, not on public inserts</item>
+            <item>Runtime config exposes resolved protection rules so the dynamic observer mirrors PHP detectors</item>
+            <item>Allow-content before first choice is session preview only; optional revoke page reload</item>
+            <item>Revoke clears known first-party tracker cookies on a conservative allowlist</item>
+            <item>Theme primary colours meet WCAG AA with white button text</item>
+            <item>CSV export uses keyset pagination</item>
+            <item>Registry dashboard count uses a short TTL cache and is no longer cleared on every insert</item>
+            <item>Policy HTML cache purge groups are page and system only</item>
+        </change>
+
+        <note>
+            <item>Major stability and security release; safe update from the public 1.1.8 baseline</item>
+            <item>Install or update using the full pkg_devartconsent package only</item>
+            <item>Purge full-page cache and CDN after updating so new consent.js attributes match cached HTML</item>
+            <item>Italian it-IT curated banner and frontend strings from 1.1.8 are preserved</item>
+        </note>
+    </changelog>
+
+<changelog>
         <element>pkg_devartconsent</element>
         <type>package</type>
         <version>1.1.8</version>
