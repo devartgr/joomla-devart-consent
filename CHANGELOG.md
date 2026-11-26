@@ -1,5 +1,57 @@
 # Changelog
 
+## 1.1.9 — 2026-11-26
+
+Major stability, security, and tooling release for Joomla 6 production sites.
+Safe update from the public `1.1.8` baseline.
+
+### Security
+- Hardened client-side embed restore against untrusted markup (element/attribute allowlists; strips event handlers, `srcdoc`, and non-http(s) URLs)
+- Embed placeholders reject the always-granted `necessary` category
+- Fallback embed `data-src` requires a catalogue- or custom-rule-matched http(s) URL
+- Visibility cookie wipe emits `devartconsent:revoke` when consent was previously present
+- Tools same-site URL analyze is SSRF-safe (site host from `live_site` / site root, port checks, no redirects, download size cap)
+
+### Blocking engine
+- Shared `HtmlTagAttributes` / `HtmlRawTextGuard` helpers for exact attribute reading and raw-text protection
+- Iframe/img/blockquote passes no longer rewrite markup that appears only inside JavaScript strings, comments, `style`, or `textarea`
+- Quote-aware comment/tag masks; bare `a < b` before comments keeps comment bytes; attribute comment residuals closed
+- Skipped `svg`/`template` segments unmasked before storage; self-closing exception applies to `<svg/>` only
+- Lazy `about:blank` / `data:` / placeholder `src` prefers the rule-matched `data-src` candidate for storage and restore
+- Detectors evaluate both `src` and `data-src` URL candidates (Google, marketing, custom, external)
+- `type="module"` preserved as `data-devart-type` and restored on activation
+- Mixed GA4 + Google Ads inline `gtag('config', …)` classification with Consent Mode aware semantics
+- Runtime config exposes resolved protection rules so the dynamic observer mirrors PHP detectors
+- Single-pass `strtr` token restore for large/comment-heavy HTML
+
+### Consent UX and API
+- Restore lazy-loaded embeds after consent (`data-src` promotion for iframes)
+- Stricter category handling for restored embed markup
+- Session “Allow content” embeds deactivate when the consent cookie disappears
+- Allow content no longer opens preferences or pre-ticks category checkboxes
+- Allow-content before first choice is session preview only; optional revoke page reload
+- `whenGranted` fires again after silent cookie loss then re-accept
+- Reject/revoke without prior activation no longer removes a neighbouring foreign `<script>` by adjacency
+- Revoke clears known first-party tracker cookies on a conservative allowlist
+- Early cookie hint + CSS suppress embed blocked-message flash when external consent is already granted
+- `data-label` on external placeholders for stable revoke labels
+- Theme primary colours meet WCAG AA with white button text
+- Google / marketing prechecks cover inline signatures without matching bare Consent Mode bootstrap needles
+
+### Administrator Tools and registry
+- Tools → Blocker **Self-check** (built-in YouTube + gtag fixture scored against current Settings)
+- Tools same-site URL analyze for frontend pages on this host
+- Soft `registry_max_records` trim runs in the cleanup Scheduler task (not on public inserts)
+- Configurable `registry_export_limit`; CSV export uses keyset pagination
+- Dashboard / Settings warning when blocking is on but the category switch is off
+- Registry dashboard `COUNT(*)` uses a forced short TTL and is no longer cleared on every insert
+- Policy HTML cache purge groups are `page` and `_system` only
+
+### Notes
+- Install or update using the full `pkg_devartconsent` package only
+- Purge full-page cache and CDN after updating so new `consent.js` attributes match cached HTML
+- Italian (`it-IT`) curated locale from `1.1.8` is unchanged for reviewed banner/frontend strings; a few new administrator Tools/registry labels may still use English until a follow-up native review
+
 ## 1.1.8 — 2026-11-26
 
 Substantial quality release: Italian native-speaker review, permanent Settings
