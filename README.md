@@ -4,7 +4,7 @@ Professional GDPR consent management package for Joomla 6, designed for municipa
 
 ![Joomla](https://img.shields.io/badge/Joomla-6.x-blue)
 ![PHP](https://img.shields.io/badge/PHP-8.3%2B-green)
-![Release](https://img.shields.io/badge/Version-1.1.8-orange)
+![Release](https://img.shields.io/badge/Version-1.1.9-orange)
 ![License](https://img.shields.io/badge/License-GPLv3-red)
 
 ---
@@ -32,15 +32,29 @@ The package includes a component, a system plugin, and an optional registry clea
 
 ---
 
+## Version 1.1.9
+
+DevArt Consent 1.1.9 is the recommended stable release for Joomla 6 production sites.
+
+### Version 1.1.9 Highlights
+
+- Hardened embed restore against untrusted markup; safer HTML blocking (exact attributes, comment/svg/template masks)
+- Lazy / placeholder `src` stores the rule-matched `data-src`; lazy embeds restore after consent
+- Detectors check both `src` and `data-src`; module scripts and mixed GA4+Ads semantics preserved
+- Tools Self-check and same-site URL analyze; registry soft-max on Scheduler; CSV export limits
+- Consent UX: `whenGranted`, Allow-content, revoke cookie allowlist, flash-free embeds on refresh
+- Safe update from the public `1.1.8` release
+- Italian (`it-IT`) curated banner/frontend strings from `1.1.8` preserved
+
 ## Version 1.1.8
 
-DevArt Consent 1.1.8 is the recommended stable release for Joomla 6 production sites.
+DevArt Consent 1.1.8 introduced Settings → Messages per-language overrides and developer API refinements.
 
 ### Version 1.1.8 Highlights
 
 - Settings → Messages: permanent per-language frontend message overrides
 - Italian (`it-IT`) native-speaker review (issue #2) and curated/protected locale
-- Developer API: `whenGranted()` / `on('change')` fire correctly after a later accept
+- Developer API: `whenGranted()` fires on deny→grant (and immediately when already granted); `on('change')` uses unified event names
 - Server embed placeholders use the same resolved messages as the banner
 - CSV export PHP 8.4+ safe; Messages/Policies language lists use installed site packs
 - Safe update from 1.1.7
@@ -396,7 +410,7 @@ Optional:
 
 1. Download the latest package:
 
-   `pkg_devartconsent_v1.1.8.zip`
+   `pkg_devartconsent_v1.1.9.zip`
 
 2. Open the Joomla administrator.
 
@@ -438,7 +452,7 @@ Before updating a production website:
 - Purge CDN or reverse-proxy cache after policy version changes
 - Complete `qa/csp-verification.md` if CSP nonces are enabled
 
-Version 1.1.8 is a safe update from `1.1.7`, `1.1.6`, `1.1.5`, `1.1.4`, `1.1.3`, `1.1.2`, `1.1.1` and `1.1.0` and earlier `1.0.x` packages.
+Version 1.1.9 is a safe update from the public `1.1.8` release, and from earlier `1.1.x` / `1.0.x` packages.
 
 ---
 
@@ -446,7 +460,7 @@ Version 1.1.8 is a safe update from `1.1.7`, `1.1.6`, `1.1.5`, `1.1.4`, `1.1.3`,
 
 Latest release:
 
-`pkg_devartconsent_v1.1.8.zip`
+`pkg_devartconsent_v1.1.9.zip`
 
 GitHub releases:
 
@@ -454,11 +468,11 @@ https://github.com/devartgr/joomla-devart-consent/releases
 
 Direct download:
 
-https://github.com/devartgr/joomla-devart-consent/releases/download/v1.1.8/pkg_devartconsent_v1.1.8.zip
+https://github.com/devartgr/joomla-devart-consent/releases/download/v1.1.9/pkg_devartconsent_v1.1.9.zip
 
 SHA-256:
 
-`00269a1a12d4e7b51a1f668e2499ef3110d4ea33bd86316379c43fe1480b6b7d`
+`dfb127c64111c981fc05f0d50e701d648536be31fc8976a53f1d688da21b96cc`
 
 ---
 
